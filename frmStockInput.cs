@@ -16,5 +16,10 @@ namespace Stock_Checker
         {
             InitializeComponent();
         }
+
+        private void frmStockInput_Load(object sender, EventArgs e)
+        {
+             this.Text = "Stock #" & frmMain.
+        }
     }
 }

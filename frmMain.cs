@@ -18,11 +18,10 @@ namespace Stock_Checker
         }
 
         internal decimal investmentBudget = 0.0M;
-        internal int stock = 0;
+        public int stock = 0;
 
         internal string[] stockName = new string[5];
         internal decimal[] stockPurchaseCost = new decimal[5];
-        internal decimal[] stockCurrentCost = new decimal[5];
         internal decimal[] stockFees = new decimal[5];
         internal decimal[] stockGrossCost = new decimal[5];
 
@@ -80,9 +79,8 @@ namespace Stock_Checker
         internal bool CheckTotalPrice() // returns false if the value exceeds the investment budget
         {
             decimal totalPurchase = stockPurchaseCost.Sum();
-            decimal totalFees = stockFees.Sum();
 
-            if (totalPurchase + totalFees >= investmentBudget)
+            if (totalPurchase >= investmentBudget)
             {
                 return false;
             }
