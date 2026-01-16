@@ -23,6 +23,7 @@ namespace Stock_Checker
         #endregion
 
         #region Constructors
+        
         public frmMain()// Default constructor for frmMain  
         {
             InitializeComponent();
@@ -47,6 +48,8 @@ namespace Stock_Checker
             calcOutput();
         }
         #endregion
+
+        #region On-Click Functions
 
         private void btnUpdateBudget_Click(object sender, EventArgs e)// Validates the investment budget  
         {
@@ -87,32 +90,35 @@ namespace Stock_Checker
         }
 
         private void OpenStockInput(object sender, EventArgs e)// Opens frmStockInput  
-        {
-            if (sender.Equals(btnStock1))
-            {
-                stock = 0;
-            }
-            else if (sender.Equals(btnStock2))
-            {
-                stock = 1;
-            }
-            else if (sender.Equals(btnStock3))
-            {
-                stock = 2;
-            }
-            else if (sender.Equals(btnStock4))
-            {
-                stock = 3;
-            }
-            else
-            {
-                stock = 4;
-            }// End if
+                                {
+                                    if (sender.Equals(btnStock1))
+                                    {
+                                        stock = 0;
+                                    }
+                                    else if (sender.Equals(btnStock2))
+                                    {
+                                        stock = 1;
+                                    }
+                                    else if (sender.Equals(btnStock3))
+                                    {
+                                        stock = 2;
+                                    }
+                                    else if (sender.Equals(btnStock4))
+                                    {
+                                        stock = 3;
+                                    }
+                                    else
+                                    {
+                                        stock = 4;
+                                    }// End if
 
-            Form formInput = new frmStockInput(investmentBudget, stock, stockName, stockPurchaseCost, stockFees, stockGrossProfit);
-            formInput.Show();
-            this.Close();
-         }
+                                    Form formInput = new frmStockInput(investmentBudget, stock, stockName, stockPurchaseCost, stockFees, stockGrossProfit);
+                                    formInput.Show();
+                                    this.Close();
+                                 }
+        #endregion
+
+        #region Extra Functions
 
         private bool CheckTotalPrice()// Checks if the investment budget is less than the total purchase price  
         {
@@ -135,6 +141,7 @@ namespace Stock_Checker
 
             }// End If
         }
+        #endregion
 
     } // important class stuff
 }
