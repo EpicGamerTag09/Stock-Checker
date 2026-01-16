@@ -19,7 +19,12 @@ namespace Stock_Checker
 
         private void frmStockInput_Load(object sender, EventArgs e)
         {
-             this.Text = "Stock #" & frmMain.
+             
+        }
+
+        public void hi()
+        {
+            txtName.Text = "Hello";
         }
     }
 }

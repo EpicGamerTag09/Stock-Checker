@@ -21,9 +21,9 @@ namespace Stock_Checker
         public int stock = 0;
 
         internal string[] stockName = new string[5];
-        internal decimal[] stockPurchaseCost = new decimal[5];
-        internal decimal[] stockFees = new decimal[5];
-        internal decimal[] stockGrossCost = new decimal[5];
+        internal decimal[] stockPurchaseCost = new decimal[5] { 0, 0, 0, 0, 0 };
+        internal decimal[] stockFees = new decimal[5] { 0, 0, 0, 0, 0 };
+        internal decimal[] stockGrossProfit = new decimal[5] { 0, 0, 0, 0, 0 };
 
         private void btnUpdateBudget_Click(object sender, EventArgs e)
         {
@@ -31,11 +31,24 @@ namespace Stock_Checker
             {
                 investmentBudget = Convert.ToInt32(txtInvestmentBudget.Text);
 
-                btnStock1.Enabled = true;
-                btnStock2.Enabled = true;
-                btnStock3.Enabled = true;
-                btnStock4.Enabled = true;
-                btnStock5.Enabled = true;
+                if (CheckTotalPrice())
+                {
+                    btnStock1.Enabled = true;
+                    btnStock2.Enabled = true;
+                    btnStock3.Enabled = true;
+                    btnStock4.Enabled = true;
+                    btnStock5.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Investment Budget cannot be less than the total purchase cost.", "Input Error");
+                    investmentBudget = 0;
+                    btnStock1.Enabled = false;
+                    btnStock2.Enabled = false;
+                    btnStock3.Enabled = false;
+                    btnStock4.Enabled = false;
+                    btnStock5.Enabled = false;
+                }// End if
             }
             catch (Exception)
             {
@@ -46,8 +59,8 @@ namespace Stock_Checker
                 btnStock3.Enabled = false;
                 btnStock4.Enabled = false;
                 btnStock5.Enabled = false;
-            }  
-        }
+            }// End try
+        }// End btnUpdateBudget_Click
 
         private void OpenStockInput(object sender, EventArgs e)
         {
@@ -80,7 +93,7 @@ namespace Stock_Checker
         {
             decimal totalPurchase = stockPurchaseCost.Sum();
 
-            if (totalPurchase >= investmentBudget)
+            if (totalPurchase > investmentBudget)
             {
                 return false;
             }
@@ -89,5 +102,8 @@ namespace Stock_Checker
                 return true;
             }
         }
+
+
+
     } // important class stuff
 }
