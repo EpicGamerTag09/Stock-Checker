@@ -102,6 +102,7 @@
             this.btnCalculate.TabIndex = 7;
             this.btnCalculate.Text = "calculate";
             this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
             // btnUpdateStock
             // 
