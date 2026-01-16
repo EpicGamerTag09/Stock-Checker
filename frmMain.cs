@@ -12,20 +12,43 @@ namespace Stock_Checker
 {
     public partial class frmMain : Form
     {
-        public frmMain()
+        #region Data
+        decimal investmentBudget;
+        int stock;
+
+        string[] stockName;
+        decimal[] stockPurchaseCost;
+        decimal[] stockFees;
+        decimal[] stockGrossProfit;
+        #endregion
+
+        #region Constructors
+        public frmMain()// Default constructor for frmMain  
         {
             InitializeComponent();
+
+            investmentBudget = 0.0M;
+            stockName = new string[5] { "", "", "", "", "" };
+            stockPurchaseCost = new decimal[5] { 0, 0, 0, 0, 0 };
+            stockFees = new decimal[5] { 0, 0, 0, 0, 0 };
+            stockGrossProfit = new decimal[5] { 0, 0, 0, 0, 0 };
         }
 
-        internal decimal investmentBudget = 0.0M;
-        public int stock = 0;
+        public frmMain(decimal budget, string[] names, decimal[] purchase, decimal[] Fees, decimal[] profit)// Parameterized constructor for frmMain  
+        {
+            InitializeComponent();
 
-        internal string[] stockName = new string[5];
-        internal decimal[] stockPurchaseCost = new decimal[5] { 0, 0, 0, 0, 0 };
-        internal decimal[] stockFees = new decimal[5] { 0, 0, 0, 0, 0 };
-        internal decimal[] stockGrossProfit = new decimal[5] { 0, 0, 0, 0, 0 };
+            investmentBudget = budget;
+            stockName = names;
+            stockPurchaseCost = purchase;
+            stockFees = Fees;
+            stockGrossProfit = profit;
 
-        private void btnUpdateBudget_Click(object sender, EventArgs e)
+            calcOutput();
+        }
+        #endregion
+
+        private void btnUpdateBudget_Click(object sender, EventArgs e)// Validates the investment budget  
         {
             try
             {
@@ -38,6 +61,7 @@ namespace Stock_Checker
                     btnStock3.Enabled = true;
                     btnStock4.Enabled = true;
                     btnStock5.Enabled = true;
+                    calcOutput();
                 }
                 else
                 {
@@ -60,9 +84,9 @@ namespace Stock_Checker
                 btnStock4.Enabled = false;
                 btnStock5.Enabled = false;
             }// End try
-        }// End btnUpdateBudget_Click
+        }
 
-        private void OpenStockInput(object sender, EventArgs e)
+        private void OpenStockInput(object sender, EventArgs e)// Opens frmStockInput  
         {
             if (sender.Equals(btnStock1))
             {
@@ -83,13 +107,14 @@ namespace Stock_Checker
             else
             {
                 stock = 4;
-            }
+            }// End if
 
-            Form formInput = new frmStockInput();
+            Form formInput = new frmStockInput(investmentBudget, stock, stockName, stockPurchaseCost, stockFees, stockGrossProfit);
             formInput.Show();
+            this.Close();
          }
 
-        internal bool CheckTotalPrice() // returns false if the value exceeds the investment budget
+        private bool CheckTotalPrice()// Checks if the investment budget is less than the total purchase price  
         {
             decimal totalPurchase = stockPurchaseCost.Sum();
 
@@ -103,7 +128,13 @@ namespace Stock_Checker
             }
         }
 
+        private void calcOutput()// Calculates and displays the output if all data has been provided
+        {
+            if (investmentBudget != 0 && stockName.Contains("") == false)
+            {
 
+            }// End If
+        }
 
     } // important class stuff
 }

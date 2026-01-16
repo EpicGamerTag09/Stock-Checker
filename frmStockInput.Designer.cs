@@ -128,7 +128,6 @@
             this.Controls.Add(this.txtName);
             this.Name = "frmStockInput";
             this.Text = "Stock #";
-            this.Load += new System.EventHandler(this.frmStockInput_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -16,15 +16,5 @@ namespace Stock_Checker
         {
             InitializeComponent();
         }
-
-        private void frmStockInput_Load(object sender, EventArgs e)
-        {
-             
-        }
-
-        public void hi()
-        {
-            txtName.Text = "Hello";
-        }
     }
 }
