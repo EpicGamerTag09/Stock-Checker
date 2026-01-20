@@ -32,7 +32,7 @@
             this.btnUpdateBudget = new System.Windows.Forms.Button();
             this.btnStock1 = new System.Windows.Forms.Button();
             this.lblStock1Name = new System.Windows.Forms.Label();
-            this.lblsotck1GrossProfit = new System.Windows.Forms.Label();
+            this.lblStockck1GrossProfit = new System.Windows.Forms.Label();
             this.lblStock1TransFee = new System.Windows.Forms.Label();
             this.lblTotalGrossValue = new System.Windows.Forms.Label();
             this.lblInvestmentBudget = new System.Windows.Forms.Label();
@@ -110,15 +110,15 @@
             this.lblStock1Name.TabIndex = 3;
             this.lblStock1Name.Text = "Entry Needed!";
             // 
-            // lblsotck1GrossProfit
+            // lblStockck1GrossProfit
             // 
-            this.lblsotck1GrossProfit.AutoSize = true;
-            this.lblsotck1GrossProfit.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsotck1GrossProfit.Location = new System.Drawing.Point(523, 131);
-            this.lblsotck1GrossProfit.Name = "lblsotck1GrossProfit";
-            this.lblsotck1GrossProfit.Size = new System.Drawing.Size(94, 29);
-            this.lblsotck1GrossProfit.TabIndex = 4;
-            this.lblsotck1GrossProfit.Text = "Profit: ";
+            this.lblStockck1GrossProfit.AutoSize = true;
+            this.lblStockck1GrossProfit.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStockck1GrossProfit.Location = new System.Drawing.Point(523, 131);
+            this.lblStockck1GrossProfit.Name = "lblStockck1GrossProfit";
+            this.lblStockck1GrossProfit.Size = new System.Drawing.Size(94, 29);
+            this.lblStockck1GrossProfit.TabIndex = 4;
+            this.lblStockck1GrossProfit.Text = "Profit: ";
             // 
             // lblStock1TransFee
             // 
@@ -512,7 +512,7 @@
             this.Controls.Add(this.lblDollar);
             this.Controls.Add(this.lblInvestmentBudget);
             this.Controls.Add(this.lblStock1TransFee);
-            this.Controls.Add(this.lblsotck1GrossProfit);
+            this.Controls.Add(this.lblStockck1GrossProfit);
             this.Controls.Add(this.lblStock1Name);
             this.Controls.Add(this.btnStock1);
             this.Controls.Add(this.btnUpdateBudget);
@@ -532,7 +532,7 @@
         private System.Windows.Forms.Button btnUpdateBudget;
         private System.Windows.Forms.Button btnStock1;
         private System.Windows.Forms.Label lblStock1Name;
-        private System.Windows.Forms.Label lblsotck1GrossProfit;
+        private System.Windows.Forms.Label lblStockck1GrossProfit;
         private System.Windows.Forms.Label lblStock1TransFee;
         private System.Windows.Forms.Label lblTotalGrossValue;
         private System.Windows.Forms.Label lblInvestmentBudget;
