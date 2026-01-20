@@ -32,7 +32,7 @@
             this.btnUpdateBudget = new System.Windows.Forms.Button();
             this.btnStock1 = new System.Windows.Forms.Button();
             this.lblStock1Name = new System.Windows.Forms.Label();
-            this.lblsotck1GrossProfit = new System.Windows.Forms.Label();
+            this.lblStock1GrossProfit = new System.Windows.Forms.Label();
             this.lblStock1TransFee = new System.Windows.Forms.Label();
             this.lblStock2TransFee = new System.Windows.Forms.Label();
             this.lblStock2GrossProfit = new System.Windows.Forms.Label();
@@ -72,6 +72,7 @@
             this.btnUpdateBudget.TabIndex = 1;
             this.btnUpdateBudget.Text = "update";
             this.btnUpdateBudget.UseVisualStyleBackColor = true;
+            this.btnUpdateBudget.Click += new System.EventHandler(this.btnUpdateBudget_Click);
             // 
             // btnStock1
             // 
@@ -82,6 +83,7 @@
             this.btnStock1.TabIndex = 2;
             this.btnStock1.Text = "stock 1";
             this.btnStock1.UseVisualStyleBackColor = true;
+            this.btnStock1.Click += new System.EventHandler(this.OpenStockInput);
             // 
             // lblStock1Name
             // 
@@ -92,14 +94,14 @@
             this.lblStock1Name.TabIndex = 3;
             this.lblStock1Name.Text = "name";
             // 
-            // lblsotck1GrossProfit
+            // lblStock1GrossProfit
             // 
-            this.lblsotck1GrossProfit.AutoSize = true;
-            this.lblsotck1GrossProfit.Location = new System.Drawing.Point(38, 209);
-            this.lblsotck1GrossProfit.Name = "lblsotck1GrossProfit";
-            this.lblsotck1GrossProfit.Size = new System.Drawing.Size(58, 13);
-            this.lblsotck1GrossProfit.TabIndex = 4;
-            this.lblsotck1GrossProfit.Text = "gross profit";
+            this.lblStock1GrossProfit.AutoSize = true;
+            this.lblStock1GrossProfit.Location = new System.Drawing.Point(38, 209);
+            this.lblStock1GrossProfit.Name = "lblStock1GrossProfit";
+            this.lblStock1GrossProfit.Size = new System.Drawing.Size(58, 13);
+            this.lblStock1GrossProfit.TabIndex = 4;
+            this.lblStock1GrossProfit.Text = "gross profit";
             // 
             // lblStock1TransFee
             // 
@@ -146,6 +148,7 @@
             this.btnStock2.TabIndex = 6;
             this.btnStock2.Text = "stock 2";
             this.btnStock2.UseVisualStyleBackColor = true;
+            this.btnStock2.Click += new System.EventHandler(this.OpenStockInput);
             // 
             // lblStock3TransFee
             // 
@@ -183,6 +186,7 @@
             this.btnStock3.TabIndex = 10;
             this.btnStock3.Text = "stock 3";
             this.btnStock3.UseVisualStyleBackColor = true;
+            this.btnStock3.Click += new System.EventHandler(this.OpenStockInput);
             // 
             // lblStock4TransFee
             // 
@@ -220,6 +224,7 @@
             this.btnStock4.TabIndex = 14;
             this.btnStock4.Text = "stock 4";
             this.btnStock4.UseVisualStyleBackColor = true;
+            this.btnStock4.Click += new System.EventHandler(this.OpenStockInput);
             // 
             // lblStock5TransFee
             // 
@@ -257,6 +262,7 @@
             this.btnStock5.TabIndex = 18;
             this.btnStock5.Text = "stock 5";
             this.btnStock5.UseVisualStyleBackColor = true;
+            this.btnStock5.Click += new System.EventHandler(this.OpenStockInput);
             // 
             // lblTotalGrossValue
             // 
@@ -330,7 +336,7 @@
             this.Controls.Add(this.lblStock2Name);
             this.Controls.Add(this.btnStock2);
             this.Controls.Add(this.lblStock1TransFee);
-            this.Controls.Add(this.lblsotck1GrossProfit);
+            this.Controls.Add(this.lblStock1GrossProfit);
             this.Controls.Add(this.lblStock1Name);
             this.Controls.Add(this.btnStock1);
             this.Controls.Add(this.btnUpdateBudget);
@@ -348,7 +354,7 @@
         private System.Windows.Forms.Button btnUpdateBudget;
         private System.Windows.Forms.Button btnStock1;
         private System.Windows.Forms.Label lblStock1Name;
-        private System.Windows.Forms.Label lblsotck1GrossProfit;
+        private System.Windows.Forms.Label lblStock1GrossProfit;
         private System.Windows.Forms.Label lblStock1TransFee;
         private System.Windows.Forms.Label lblStock2TransFee;
         private System.Windows.Forms.Label lblStock2GrossProfit;
