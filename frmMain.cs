@@ -35,7 +35,7 @@ namespace Stock_Checker
             stockGrossProfit = new decimal[5] { 0, 0, 0, 0, 0 };
         }
 
-        public frmMain(decimal budget, string[] names, decimal[] purchase, decimal[] Fees, decimal[] profit)// Parameterized constructor for frmMain  
+        public frmMain(decimal budget, string[] names, decimal[] purchase, decimal[] Fees, decimal[] profit, int updStock)// Parameterized constructor for frmMain  
         {
             InitializeComponent();
 
@@ -44,7 +44,9 @@ namespace Stock_Checker
             stockPurchaseCost = purchase;
             stockFees = Fees;
             stockGrossProfit = profit;
+            stock = updStock;
 
+            updateStock();
             calcOutput();
         }
         #endregion
@@ -90,32 +92,32 @@ namespace Stock_Checker
         }
 
         private void OpenStockInput(object sender, EventArgs e)// Opens frmStockInput  
-                                {
-                                    if (sender.Equals(btnStock1))
-                                    {
-                                        stock = 0;
-                                    }
-                                    else if (sender.Equals(btnStock2))
-                                    {
-                                        stock = 1;
-                                    }
-                                    else if (sender.Equals(btnStock3))
-                                    {
-                                        stock = 2;
-                                    }
-                                    else if (sender.Equals(btnStock4))
-                                    {
-                                        stock = 3;
-                                    }
-                                    else
-                                    {
-                                        stock = 4;
-                                    }// End if
+        {
+            if (sender.Equals(btnStock1))
+            {
+                stock = 0;
+            }
+            else if (sender.Equals(btnStock2))
+            {
+                stock = 1;
+            }
+            else if (sender.Equals(btnStock3))
+            {
+                stock = 2;
+            }
+            else if (sender.Equals(btnStock4))
+            {
+                stock = 3;
+            }
+            else
+            {
+                stock = 4;
+            }// End if
 
-                                    Form formInput = new frmStockInput(investmentBudget, stock, stockName, stockPurchaseCost, stockFees, stockGrossProfit);
-                                    formInput.Show();
-                                    this.Close();
-                                 }
+            Form formInput = new frmStockInput(investmentBudget, stock, stockName, stockPurchaseCost, stockFees, stockGrossProfit);
+            formInput.Show();
+            this.Close();
+        }
         #endregion
 
         #region Extra Functions
@@ -132,6 +134,11 @@ namespace Stock_Checker
             {
                 return true;
             }
+        }
+
+        private void updateStock()// Updates the stock info after input is provided
+        {
+
         }
 
         private void calcOutput()// Calculates and displays the output if all data has been provided
