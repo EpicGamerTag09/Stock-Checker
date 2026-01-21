@@ -40,9 +40,27 @@ namespace Stock_Checker
             string errorMessage = "The following errors must be corrected before the stock is entered:";
             bool goodData = true;
 
-            decimal purchaseCost;
-            decimal sellPrice;
-            int sharesPurchased;
+
+            decimal purchaseCost = CheckPurchase(txtPurchasePrice.Text); // checks if the purchase price is a positive number
+            if (purchaseCost == -1) 
+            {
+                errorMessage += "\n    - Purchase price must be a positive number";
+                goodData = false;
+            }
+
+            decimal sellPrice = CheckSellPrice(txtSellingPrice.Text); // checks if the selling price is a positive number
+            if (sellPrice == -1)
+            {
+                errorMessage += "\n    - Selling price must be a positive number";
+                goodData = false;
+            }
+
+            int sharesPurchased = CheckSharesPurchased(txtSharesPurchased.Text); // checks if the shares purchased is a positive number
+            if (sharesPurchased == -1)
+            {
+                errorMessage += "\n    - Shares purchased must be a positive number";
+                goodData = false;
+            }
 
             if (txtName.Text.Length == 0)
             {
@@ -50,7 +68,71 @@ namespace Stock_Checker
                 errorMessage += "\n    - A name for the stock must be entered";
             }// End if
 
+            if (goodData)
+            {
+                // Do math ( I ran out of time lol)
+            }
 
+
+        }
+        private decimal CheckPurchase(string _purchaseCost)
+        {
+            try
+            {
+                decimal _decPurchaseCost = Convert.ToDecimal(_purchaseCost);
+                if (_decPurchaseCost < 0)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return _decPurchaseCost;
+                }
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
+        private decimal CheckSellPrice(string _sellingCost)
+        {
+            try
+            {
+                decimal _decSellingPrice = Convert.ToDecimal(_sellingCost);
+                if (_decSellingPrice < 0)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return _decSellingPrice;
+                }
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
+        private int CheckSharesPurchased(string _sharesPurchased)
+        {
+            try
+            {
+                int _intSharesPurchased = Convert.ToInt32(_sharesPurchased);
+                if (_intSharesPurchased < 0)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return _intSharesPurchased;
+                }
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
         }
     }// End of frmStockInput
 }
