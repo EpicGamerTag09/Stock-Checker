@@ -14,41 +14,29 @@ namespace Stock_Checker
 {
     public partial class frmStockInput : Form
     {
-        #region globalVariables
-        decimal _investmentBudget = 0.0M;
-        int       _stock = 0;
-        string[]  _stockName;
-        decimal[] _stockPurchaseCost;
-        decimal[] _stockFees;
-        decimal[] _stockGrossProfit;
+        #region Data
+        decimal     budget;
+        int         stockNumber;
+        string[]    savedNames;
+        decimal[]   savedCosts;
+        decimal[]   savedFees;
+        decimal[]   savedProfits;
         #endregion
 
-        public frmStockInput(decimal investmentBudget, int stock, string[] stockName, decimal[] stockPurchaseCost, decimal[] stockFees, decimal[] stockGrossProfit) // peramerized constructor
+        public frmStockInput(decimal _budget, int _stock, string[] _names, decimal[] _costs, decimal[] _fees, decimal[] _grossProfits)// Parameterized constructor for frmStockInput
         {
             InitializeComponent();
-            _investmentBudget = investmentBudget;
-            _stock = stock;
-            _stockName = stockName;
-            _stockPurchaseCost = stockPurchaseCost;
-            _stockFees = stockFees;
-            _stockGrossProfit = stockGrossProfit;
+            budget = _budget;
+            stockNumber = _stock;
+            savedNames = _names;
+            savedCosts = _costs;
+            savedFees = _fees;
+            savedProfits = _grossProfits;
         }
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
 
         }
-
-        private decimal IsNumeric(string checkString)
-        {
-            try
-            {
-                return Convert.ToInt32(checkString);
-            }
-            catch
-            {
-                return -69;
-            }
-        }
-    }
+    }// End of frmStockInput
 }
