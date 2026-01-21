@@ -10,13 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Stock_Checker
 {
     public partial class frmStockInput : Form
     {
         #region globalVariables
         decimal _investmentBudget = 0.0M;
-        int       _stock = 0;
+        int       _stockIndex = 0;
         string[]  _stockName;
         decimal[] _stockPurchaseCost;
         decimal[] _stockFees;
@@ -27,7 +28,7 @@ namespace Stock_Checker
         {
             InitializeComponent();
             _investmentBudget = investmentBudget;
-            _stock = stock;
+            _stockIndex = stock;
             _stockName = stockName;
             _stockPurchaseCost = stockPurchaseCost;
             _stockFees = stockFees;
@@ -36,19 +37,35 @@ namespace Stock_Checker
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
+            string strStockPurchaseCost = txtPurchasePrice.Text;
+            string strStocksBought = txtSharesPurchased.Text;
+            string strStockSoldCost = txtSellingPrice.Text;
 
+            if (IsNumeric(strStockPurchaseCost,"Purchase cost is not a number, enter a different value") == -1.0M)
+            {
+                // fix whatever this is
+            }
+            
         }
 
-        private decimal IsNumeric(string checkString)
+        private decimal IsNumeric(string checkString, string errorMessage)
         {
-            try
+            bool loop = true;
+            do
             {
-                return Convert.ToInt32(checkString);
+                try
+                {
+                    loop = false;
+                    return Convert.ToInt32(checkString);
+                }
+                catch
+                {
+                    MessageBox.Show(errorMessage);
+                    return -1.0M;
+                }    
             }
-            catch
-            {
-                return -69;
-            }
+            while (loop);
+            
         }
     }
 }
