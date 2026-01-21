@@ -37,6 +37,19 @@ namespace Stock_Checker
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
+            string errorMessage = "The following errors must be corrected before the stock is entered:";
+            bool goodData = true;
+
+            decimal purchaseCost;
+            decimal sellPrice;
+            int sharesPurchased;
+
+            if (txtName.Text.Length == 0)
+            {
+                goodData = false;
+                errorMessage += "\n    - A name for the stock must be entered";
+            }// End if
+
 
         }
     }// End of frmStockInput
