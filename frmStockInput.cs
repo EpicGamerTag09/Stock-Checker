@@ -41,21 +41,21 @@ namespace Stock_Checker
             bool goodData = true;
 
 
-            decimal purchaseCost = CheckPurchase(txtPurchasePrice.Text); // checks if the purchase price is a positive number
+            decimal purchaseCost = CheckPurchase(); // checks if the purchase price is a positive number
             if (purchaseCost == -1) 
             {
                 errorMessage += "\n    - Purchase price must be a positive number";
                 goodData = false;
             }
 
-            decimal sellPrice = CheckSellPrice(txtSellingPrice.Text); // checks if the selling price is a positive number
+            decimal sellPrice = CheckSellPrice(); // checks if the selling price is a positive number
             if (sellPrice == -1)
             {
                 errorMessage += "\n    - Selling price must be a positive number";
                 goodData = false;
             }
 
-            int sharesPurchased = CheckSharesPurchased(txtSharesPurchased.Text); // checks if the shares purchased is a positive number
+            int sharesPurchased = CheckSharesPurchased(); // checks if the shares purchased is a positive number
             if (sharesPurchased == -1)
             {
                 errorMessage += "\n    - Shares purchased must be a positive number";
@@ -75,11 +75,11 @@ namespace Stock_Checker
 
 
         }
-        private decimal CheckPurchase(string _purchaseCost)
+        private decimal CheckPurchase()
         {
             try
             {
-                decimal _decPurchaseCost = Convert.ToDecimal(_purchaseCost);
+                decimal _decPurchaseCost = Convert.ToDecimal(txtPurchasePrice.Text);
                 if (_decPurchaseCost < 0)
                 {
                     return -1;
@@ -95,11 +95,11 @@ namespace Stock_Checker
             }
         }
 
-        private decimal CheckSellPrice(string _sellingCost)
+        private decimal CheckSellPrice()
         {
             try
             {
-                decimal _decSellingPrice = Convert.ToDecimal(_sellingCost);
+                decimal _decSellingPrice = Convert.ToDecimal(txtSellingPrice.Text);
                 if (_decSellingPrice < 0)
                 {
                     return -1;
@@ -115,11 +115,11 @@ namespace Stock_Checker
             }
         }
 
-        private int CheckSharesPurchased(string _sharesPurchased)
+        private int CheckSharesPurchased()
         {
             try
             {
-                int _intSharesPurchased = Convert.ToInt32(_sharesPurchased);
+                int _intSharesPurchased = Convert.ToInt32(txtSharesPurchased.Text);
                 if (_intSharesPurchased < 0)
                 {
                     return -1;
