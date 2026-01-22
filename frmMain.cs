@@ -39,7 +39,7 @@ namespace Stock_Checker
             stockGrossProfit = new decimal[5] { 0, 0, 0, 0, 0 };
         }
 
-        public frmMain(decimal budget, string[] names, decimal[] purchase, decimal[] purFees, decimal[] sellFees,decimal[] profit, int updStock)// Parameterized constructor for frmMain  
+        public frmMain(decimal budget, string[] names, decimal[] purchase, decimal[] purFees, decimal[] sellFees,decimal[] profit)// Parameterized constructor for frmMain  
         {
             InitializeComponent();
 
@@ -49,7 +49,6 @@ namespace Stock_Checker
             stockPurchaseFees = purFees;
             stockSellFees = sellFees;
             stockGrossProfit = profit;
-            stock = updStock;
 
             updateStock();
             calcOutput();
@@ -141,38 +140,9 @@ namespace Stock_Checker
             }
         }
 
-        private void updateStock()// Updates the stock info after input is provided
+        private void updateStock()// Displays the info for each stock
         {
-            ref Label nameLabel = ref lblStock1Name;
-            ref Label profitLabel = ref lblStock1GrossProfit;
-            ref Label feeLabel = ref lblStock1TransFee;
-
-            switch (stock) {
-                case 1:
-                    nameLabel = ref lblStock2Name;
-                    profitLabel = ref lblStock2GrossProfit;
-                    feeLabel = ref lblStock2TransFee;
-                    break;
-                case 2:
-                    nameLabel = ref lblStock3Name;
-                    profitLabel= ref lblStock3GrossProfit;
-                    feeLabel = ref lblStock3TransFee;
-                    break;
-                case 3:
-                    nameLabel = ref lblStock4Name;
-                    profitLabel = ref lblStock4GrossProfit;
-                    feeLabel = ref lblStock4TransFee;
-                    break;
-                case 4:
-                    nameLabel = ref lblStock5Name;
-                    profitLabel = ref lblStock5GrossProfit;
-                    feeLabel = ref lblStock5TransFee;
-                    break;
-            }// End switch
-
-            nameLabel.Text = stockName[stock];
-            profitLabel.Text = "Profit: " + stockGrossProfit[stock].ToString("C");
-            feeLabel.Text = "Fees:  " + (stockPurchaseFees[stock] + stockSellFees[stock]).ToString("C");
+            // Display Stock Info
         }
 
         private void calcOutput()// Calculates and displays the output if all data has been provided
