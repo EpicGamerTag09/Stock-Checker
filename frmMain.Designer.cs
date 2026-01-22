@@ -485,7 +485,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.LightYellow;
+            this.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.ClientSize = new System.Drawing.Size(1076, 648);
             this.Controls.Add(this.grpOutput);
             this.Controls.Add(this.lblStock5);
@@ -519,6 +519,7 @@
             this.Controls.Add(this.txtInvestmentBudget);
             this.Name = "frmMain";
             this.Text = "Stock Checker";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.grpOutput.ResumeLayout(false);
             this.grpOutput.PerformLayout();
             this.ResumeLayout(false);
