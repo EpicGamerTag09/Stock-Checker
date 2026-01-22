@@ -35,6 +35,8 @@ namespace Stock_Checker
             savedProfits = _grossProfits;
         }
 
+        #region Click Events
+
         private void btnCalculate_Click(object sender, EventArgs e)
         {
             string errorMessage = "The following errors must be corrected before the stock is entered:";
@@ -72,9 +74,11 @@ namespace Stock_Checker
             {
                 // Do math ( I ran out of time lol)
             }
-
-
         }
+        #endregion
+
+        #region Input Tests
+
         private decimal CheckPurchase()
         {
             try
@@ -134,5 +138,7 @@ namespace Stock_Checker
                 return -1;
             }
         }
+        #endregion
+
     }// End of frmStockInput
 }
