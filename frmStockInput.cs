@@ -39,7 +39,7 @@ namespace Stock_Checker
             savedProfits = _grossProfits;
         }
 
-        #region Click Events
+        #region Form Events
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
@@ -68,10 +68,12 @@ namespace Stock_Checker
                 goodData = false;
             }
 
+            decimal purchaseTransaction = 0.0M;
+            decimal purchaseFee = 0.0M;
             if (goodData)
             {
-                decimal purchaseTransaction = purchaseCost * sharesPurchased;
-                decimal purchaseFee = purchaseTransaction * FEE_RATE;
+                purchaseTransaction = purchaseCost * sharesPurchased;
+                purchaseFee = purchaseTransaction * FEE_RATE;
                 if (CheckOverdraft(purchaseTransaction, purchaseFee))
                 {
                     errorMessage += "\n    - Total purchase transaction cannot exceed investment budget";
@@ -85,10 +87,34 @@ namespace Stock_Checker
                 errorMessage += "\n    - A name for the stock must be entered";
             }// End if
 
+            // test results
             if (goodData)
             {
-                
+                decimal sellTransaction = sellPrice * sharesPurchased;
+                decimal grossProfit = sellTransaction - purchaseTransaction;
+                decimal sellFee = 0M;
+                if (grossProfit > 0)
+                {
+                    sellFee = sellTransaction * FEE_RATE;
+                }
+
+                lblPurchaseCostValue.Text = purchaseTransaction.ToString("C");
+                lblGrossProfitValue.Text = grossProfit.ToString("C");
+                lblSellFeeValue.Text = sellFee.ToString("C");
+                lblPurFeeValue.Text = purchaseFee.ToString("C");
+
+                savedNames[stockNumber] = txtName.Text;
+                savedCosts[stockNumber] = purchaseTransaction;
+                savedPurchaseFees[stockNumber] = purchaseFee;
+                savedSellFees[stockNumber] = sellFee;
+                savedProfits[stockNumber] = grossProfit;
+
             }
+        }
+
+        private void btnUpdateStock_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         #endregion
 
@@ -168,5 +194,9 @@ namespace Stock_Checker
         }
         #endregion
 
+        private void frmStockInput_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frmMain newForm = new frmMain(budget, savedNames, savedCosts, savedPurchaseFees, savedSellFees, savedProfits);
+        }
     }// End of frmStockInput
 }

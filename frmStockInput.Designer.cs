@@ -33,10 +33,11 @@
             this.txtSellingPrice = new System.Windows.Forms.TextBox();
             this.txtSharesPurchased = new System.Windows.Forms.TextBox();
             this.lblPurchaseCostValue = new System.Windows.Forms.Label();
-            this.lblTransFeeValue = new System.Windows.Forms.Label();
+            this.lblPurFeeValue = new System.Windows.Forms.Label();
             this.lblGrossProfitValue = new System.Windows.Forms.Label();
             this.btnCalculate = new System.Windows.Forms.Button();
             this.btnUpdateStock = new System.Windows.Forms.Button();
+            this.lblSellFeeValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtName
@@ -76,14 +77,14 @@
             this.lblPurchaseCostValue.TabIndex = 4;
             this.lblPurchaseCostValue.Text = "$purchase";
             // 
-            // lblTransFeeValue
+            // lblPurFeeValue
             // 
-            this.lblTransFeeValue.AutoSize = true;
-            this.lblTransFeeValue.Location = new System.Drawing.Point(674, 138);
-            this.lblTransFeeValue.Name = "lblTransFeeValue";
-            this.lblTransFeeValue.Size = new System.Drawing.Size(65, 13);
-            this.lblTransFeeValue.TabIndex = 5;
-            this.lblTransFeeValue.Text = "$transaction";
+            this.lblPurFeeValue.AutoSize = true;
+            this.lblPurFeeValue.Location = new System.Drawing.Point(674, 138);
+            this.lblPurFeeValue.Name = "lblPurFeeValue";
+            this.lblPurFeeValue.Size = new System.Drawing.Size(53, 13);
+            this.lblPurFeeValue.TabIndex = 5;
+            this.lblPurFeeValue.Text = "pur valuie";
             // 
             // lblGrossProfitValue
             // 
@@ -112,16 +113,27 @@
             this.btnUpdateStock.TabIndex = 8;
             this.btnUpdateStock.Text = "Update Stock";
             this.btnUpdateStock.UseVisualStyleBackColor = true;
+            this.btnUpdateStock.Click += new System.EventHandler(this.btnUpdateStock_Click);
+            // 
+            // lblSellFeeValue
+            // 
+            this.lblSellFeeValue.AutoSize = true;
+            this.lblSellFeeValue.Location = new System.Drawing.Point(674, 181);
+            this.lblSellFeeValue.Name = "lblSellFeeValue";
+            this.lblSellFeeValue.Size = new System.Drawing.Size(65, 13);
+            this.lblSellFeeValue.TabIndex = 9;
+            this.lblSellFeeValue.Text = "$transaction";
             // 
             // frmStockInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1107, 515);
+            this.Controls.Add(this.lblSellFeeValue);
             this.Controls.Add(this.btnUpdateStock);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.lblGrossProfitValue);
-            this.Controls.Add(this.lblTransFeeValue);
+            this.Controls.Add(this.lblPurFeeValue);
             this.Controls.Add(this.lblPurchaseCostValue);
             this.Controls.Add(this.txtSharesPurchased);
             this.Controls.Add(this.txtSellingPrice);
@@ -129,6 +141,7 @@
             this.Controls.Add(this.txtName);
             this.Name = "frmStockInput";
             this.Text = "Stock #";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmStockInput_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,9 +154,10 @@
         private System.Windows.Forms.TextBox txtSellingPrice;
         private System.Windows.Forms.TextBox txtSharesPurchased;
         private System.Windows.Forms.Label lblPurchaseCostValue;
-        private System.Windows.Forms.Label lblTransFeeValue;
+        private System.Windows.Forms.Label lblPurFeeValue;
         private System.Windows.Forms.Label lblGrossProfitValue;
         private System.Windows.Forms.Button btnCalculate;
         private System.Windows.Forms.Button btnUpdateStock;
+        private System.Windows.Forms.Label lblSellFeeValue;
     }
 }
