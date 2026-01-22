@@ -20,18 +20,22 @@ namespace Stock_Checker
         int         stockNumber;
         string[]    savedNames;
         decimal[]   savedCosts;
-        decimal[]   savedFees;
+        decimal[]   savedPurchaseFees;
+        decimal[]   savedSellFees;
         decimal[]   savedProfits;
+
+        const decimal FEE_RATE = 0.02M;
         #endregion
 
-        public frmStockInput(decimal _budget, int _stock, string[] _names, decimal[] _costs, decimal[] _fees, decimal[] _grossProfits)// Parameterized constructor for frmStockInput
+        public frmStockInput(decimal _budget, int _stock, string[] _names, decimal[] _costs, decimal[] _purFees, decimal[] _sellFees, decimal[] _grossProfits)// Parameterized constructor for frmStockInput
         {
             InitializeComponent();
             budget = _budget;
             stockNumber = _stock;
             savedNames = _names;
             savedCosts = _costs;
-            savedFees = _fees;
+            savedPurchaseFees = _purFees;
+            savedSellFees = _sellFees;
             savedProfits = _grossProfits;
         }
 
@@ -64,6 +68,17 @@ namespace Stock_Checker
                 goodData = false;
             }
 
+            if (goodData)
+            {
+                decimal purchaseTransaction = purchaseCost * sharesPurchased;
+                decimal purchaseFee = purchaseTransaction * FEE_RATE;
+                if (CheckOverdraft(purchaseTransaction, purchaseFee))
+                {
+                    errorMessage += "\n    - Total purchase transaction cannot exceed investment budget";
+                    goodData = false;
+                }
+            }
+
             if (txtName.Text.Length == 0)
             {
                 goodData = false;
@@ -72,7 +87,7 @@ namespace Stock_Checker
 
             if (goodData)
             {
-                // Do math ( I ran out of time lol)
+                
             }
         }
         #endregion
@@ -136,6 +151,19 @@ namespace Stock_Checker
             catch (Exception)
             {
                 return -1;
+            }
+        }
+
+        private bool CheckOverdraft(decimal transaction, decimal purFee)
+        {
+            decimal totalTransaction = savedCosts.Sum() + savedPurchaseFees.Sum() - savedCosts[stockNumber] - savedPurchaseFees[stockNumber] + transaction + purFee;
+            if (budget < totalTransaction)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
         #endregion
