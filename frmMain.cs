@@ -18,7 +18,8 @@ namespace Stock_Checker
 
         string[] stockName;
         decimal[] stockPurchaseCost;
-        decimal[] stockFees;
+        decimal[] stockPurchaseFees;
+        decimal[] stockSellFees;
         decimal[] stockGrossProfit;
 
         const decimal TAX_RATE = 0.1M;
@@ -33,18 +34,20 @@ namespace Stock_Checker
             investmentBudget = 0.0M;
             stockName = new string[5] { "", "", "", "", "" };
             stockPurchaseCost = new decimal[5] { 0, 0, 0, 0, 0 };
-            stockFees = new decimal[5] { 0, 0, 0, 0, 0 };
+            stockPurchaseFees = new decimal[5] { 0, 0, 0, 0, 0 };
+            stockSellFees = new decimal[5] { 0, 0, 0, 0, 0 };
             stockGrossProfit = new decimal[5] { 0, 0, 0, 0, 0 };
         }
 
-        public frmMain(decimal budget, string[] names, decimal[] purchase, decimal[] Fees, decimal[] profit, int updStock)// Parameterized constructor for frmMain  
+        public frmMain(decimal budget, string[] names, decimal[] purchase, decimal[] purFees, decimal[] sellFees,decimal[] profit, int updStock)// Parameterized constructor for frmMain  
         {
             InitializeComponent();
 
             investmentBudget = budget;
             stockName = names;
             stockPurchaseCost = purchase;
-            stockFees = Fees;
+            stockPurchaseFees = purFees;
+            stockSellFees = sellFees;
             stockGrossProfit = profit;
             stock = updStock;
 
@@ -116,7 +119,7 @@ namespace Stock_Checker
                 stock = 4;
             }// End if
 
-            Form formInput = new frmStockInput(investmentBudget, stock, stockName, stockPurchaseCost, stockFees, stockGrossProfit);
+            Form formInput = new frmStockInput(investmentBudget, stock, stockName, stockPurchaseCost, stockPurchaseFees, stockSellFees,stockGrossProfit);
             formInput.Show();
             this.Close();
         }
@@ -169,7 +172,7 @@ namespace Stock_Checker
 
             nameLabel.Text = stockName[stock];
             profitLabel.Text = "Profit: " + stockGrossProfit[stock].ToString("C");
-            feeLabel.Text = "Fees:  " + stockFees[stock].ToString("C");
+            feeLabel.Text = "Fees:  " + (stockPurchaseFees[stock] + stockSellFees[stock]).ToString("C");
         }
 
         private void calcOutput()// Calculates and displays the output if all data has been provided
@@ -177,7 +180,7 @@ namespace Stock_Checker
             if (investmentBudget != 0 && stockName.Contains("") == false)
             {
                 decimal grossTotal = stockGrossProfit.Sum();
-                decimal feeTotal = stockFees.Sum();
+                decimal feeTotal = stockPurchaseFees.Sum() + stockSellFees.Sum();
                 decimal tax = grossTotal * TAX_RATE;
                 decimal netProfit = grossTotal - feeTotal - tax;
                 decimal newBudget = investmentBudget + netProfit;
