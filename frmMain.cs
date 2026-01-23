@@ -126,6 +126,14 @@ namespace Stock_Checker
             formInput.Show();
             this.Close();
         }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (stock == -1)
+            {
+                Application.Exit();
+            }
+        }
         #endregion
 
         #region Extra Functions
@@ -198,12 +206,5 @@ namespace Stock_Checker
         }
         #endregion
 
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (stock == -1)
-            {
-                Application.Exit();
-            }
-        }
     }// End of frmMain
 }
