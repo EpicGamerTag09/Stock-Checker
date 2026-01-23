@@ -27,6 +27,8 @@ namespace Stock_Checker
         const decimal FEE_RATE = 0.02M;
         #endregion
 
+        #region Constructor
+
         public frmStockInput(decimal _budget, int _stock, string[] _names, decimal[] _costs, decimal[] _purFees, decimal[] _sellFees, decimal[] _grossProfits)// Parameterized constructor for frmStockInput
         {
             InitializeComponent();
@@ -38,6 +40,7 @@ namespace Stock_Checker
             savedSellFees = _sellFees;
             savedProfits = _grossProfits;
         }
+        #endregion
 
         #region Form Events
 
