@@ -161,30 +161,45 @@ namespace Stock_Checker
             btnStock4.Enabled = true;
             btnStock5.Enabled = true;
 
-            // stock 1
-            lblStock1Name.Text = stockName[0];
-            lblStock1GrossProfit.Text = stockGrossProfit[0].ToString("C");
-            lblStock1TransFee.Text = stockSellFees[0].ToString("C");
+            if (stockName[0] != "")
+            {
+                // stock 1
+                lblStock1Name.Text = stockName[0];
+                lblStock1GrossProfit.Text = "Profit: " + stockGrossProfit[0].ToString("C");
+                lblStock1TransFee.Text = "Fees: " + (stockSellFees[0] + stockPurchaseFees[0]).ToString("C");
+            }
 
-            // stock 2
-            lblStock2Name.Text = stockName[1];
-            lblStock2GrossProfit.Text = stockGrossProfit[1].ToString("C");
-            lblStock2TransFee.Text = stockSellFees[1].ToString("C");
+            if (stockName[1] != "")
+            {
+                // stock 2
+                lblStock2Name.Text = stockName[1];
+                lblStock2GrossProfit.Text = "Profit: " + stockGrossProfit[1].ToString("C");
+                lblStock2TransFee.Text = "Fees: " + (stockSellFees[1] + stockPurchaseFees[1]).ToString("C");
+            }
 
-            // stock 3
-            lblStock3Name.Text = stockName[2];
-            lblStock3GrossProfit.Text = stockGrossProfit[2].ToString("C");
-            lblStock3TransFee.Text = stockSellFees[2].ToString("C");
+            if (stockName[2] != "")
+            {
+                // stock 3
+                lblStock3Name.Text = stockName[2];
+                lblStock3GrossProfit.Text = "Profit: " + stockGrossProfit[2].ToString("C");
+                lblStock3TransFee.Text = "Fees: " + (stockSellFees[2] + stockPurchaseFees[2]).ToString("C");
+            }
 
-            // stock 4
-            lblStock4Name.Text = stockName[3];
-            lblStock4GrossProfit.Text = stockGrossProfit[3].ToString("C");
-            lblStock4TransFee.Text = stockSellFees[3].ToString("C");
+            if (stockName[3] != "")
+            {
+                // stock 4
+                lblStock4Name.Text = stockName[3];
+                lblStock4GrossProfit.Text = "Profit: " + stockGrossProfit[3].ToString("C");
+                lblStock4TransFee.Text = "Fees: " + (stockSellFees[3] + stockPurchaseFees[3]).ToString("C");
+            }
 
-            // stock 5
-            lblStock5Name.Text = stockName[4];
-            lblStock5GrossProfit.Text = stockGrossProfit[4].ToString("C");
-            lblStock5TransFee.Text = stockSellFees[4].ToString("C");
+            if (stockName[4] != "")
+            {
+                // stock 5
+                lblStock5Name.Text = stockName[4];
+                lblStock5GrossProfit.Text = "Profit: " + stockGrossProfit[4].ToString("C");
+                lblStock5TransFee.Text = "Fees: " + (stockSellFees[4] + stockPurchaseFees[4]).ToString("C");
+            }
         }
 
         private void calcOutput()// Calculates and displays the output if all data has been provided
