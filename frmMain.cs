@@ -18,7 +18,8 @@ namespace Stock_Checker
 
         string[] stockName;
         decimal[] stockPurchaseCost;
-        decimal[] stockFees;
+        decimal[] stockPurchaseFees;
+        decimal[] stockSellFees;
         decimal[] stockGrossProfit;
 
         const decimal TAX_RATE = 0.1M;
@@ -33,20 +34,21 @@ namespace Stock_Checker
             investmentBudget = 0.0M;
             stockName = new string[5] { "", "", "", "", "" };
             stockPurchaseCost = new decimal[5] { 0, 0, 0, 0, 0 };
-            stockFees = new decimal[5] { 0, 0, 0, 0, 0 };
+            stockPurchaseFees = new decimal[5] { 0, 0, 0, 0, 0 };
+            stockSellFees = new decimal[5] { 0, 0, 0, 0, 0 };
             stockGrossProfit = new decimal[5] { 0, 0, 0, 0, 0 };
         }
 
-        public frmMain(decimal budget, string[] names, decimal[] purchase, decimal[] Fees, decimal[] profit, int updStock)// Parameterized constructor for frmMain  
+        public frmMain(decimal budget, string[] names, decimal[] purchase, decimal[] purFees, decimal[] sellFees,decimal[] profit)// Parameterized constructor for frmMain  
         {
             InitializeComponent();
 
             investmentBudget = budget;
             stockName = names;
             stockPurchaseCost = purchase;
-            stockFees = Fees;
+            stockPurchaseFees = purFees;
+            stockSellFees = sellFees;
             stockGrossProfit = profit;
-            stock = updStock;
 
             updateStock();
             calcOutput();
@@ -116,7 +118,7 @@ namespace Stock_Checker
                 stock = 4;
             }// End if
 
-            Form formInput = new frmStockInput(investmentBudget, stock, stockName, stockPurchaseCost, stockFees, stockGrossProfit);
+            Form formInput = new frmStockInput(investmentBudget, stock, stockName, stockPurchaseCost, stockPurchaseFees, stockSellFees,stockGrossProfit);
             formInput.Show();
             this.Close();
         }
@@ -138,38 +140,9 @@ namespace Stock_Checker
             }
         }
 
-        private void updateStock()// Updates the stock info after input is provided
+        private void updateStock()// Displays the info for each stock
         {
-            ref Label nameLabel = ref lblStock1Name;
-            ref Label profitLabel = ref lblStock1GrossProfit;
-            ref Label feeLabel = ref lblStock1TransFee;
-
-            switch (stock) {
-                case 1:
-                    nameLabel = ref lblStock2Name;
-                    profitLabel = ref lblStock2GrossProfit;
-                    feeLabel = ref lblStock2TransFee;
-                    break;
-                case 2:
-                    nameLabel = ref lblStock3Name;
-                    profitLabel= ref lblStock3GrossProfit;
-                    feeLabel = ref lblStock3TransFee;
-                    break;
-                case 3:
-                    nameLabel = ref lblStock4Name;
-                    profitLabel = ref lblStock4GrossProfit;
-                    feeLabel = ref lblStock4TransFee;
-                    break;
-                case 4:
-                    nameLabel = ref lblStock5Name;
-                    profitLabel = ref lblStock5GrossProfit;
-                    feeLabel = ref lblStock5TransFee;
-                    break;
-            }// End switch
-
-            nameLabel.Text = stockName[stock];
-            profitLabel.Text = "Profit: " + stockGrossProfit[stock].ToString("C");
-            feeLabel.Text = "Fees:  " + stockFees[stock].ToString("C");
+            // Display Stock Info
         }
 
         private void calcOutput()// Calculates and displays the output if all data has been provided
@@ -177,7 +150,7 @@ namespace Stock_Checker
             if (investmentBudget != 0 && stockName.Contains("") == false)
             {
                 decimal grossTotal = stockGrossProfit.Sum();
-                decimal feeTotal = stockFees.Sum();
+                decimal feeTotal = stockPurchaseFees.Sum() + stockSellFees.Sum();
                 decimal tax = grossTotal * TAX_RATE;
                 decimal netProfit = grossTotal - feeTotal - tax;
                 decimal newBudget = investmentBudget + netProfit;
