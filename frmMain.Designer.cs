@@ -343,6 +343,7 @@
             this.Controls.Add(this.txtInvestmentBudget);
             this.Name = "frmMain";
             this.Text = "Stock Checker";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

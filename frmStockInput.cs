@@ -200,6 +200,7 @@ namespace Stock_Checker
         private void frmStockInput_FormClosing(object sender, FormClosingEventArgs e)
         {
             frmMain newForm = new frmMain(budget, savedNames, savedCosts, savedPurchaseFees, savedSellFees, savedProfits);
+            newForm.Show();
         }
     }// End of frmStockInput
 }

@@ -16,7 +16,9 @@ namespace Stock_Checker
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+            frmMain f = new frmMain();
+            f.Show();
+            Application.Run();
         }
     }
 }
