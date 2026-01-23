@@ -32,11 +32,14 @@ namespace Stock_Checker
             InitializeComponent();
 
             investmentBudget = 0.0M;
+
             stockName = new string[5] { "", "", "", "", "" };
             stockPurchaseCost = new decimal[5] { 0, 0, 0, 0, 0 };
             stockPurchaseFees = new decimal[5] { 0, 0, 0, 0, 0 };
             stockSellFees = new decimal[5] { 0, 0, 0, 0, 0 };
             stockGrossProfit = new decimal[5] { 0, 0, 0, 0, 0 };
+
+            stock = -1;
         }
 
         public frmMain(decimal budget, string[] names, decimal[] purchase, decimal[] purFees, decimal[] sellFees,decimal[] profit)// Parameterized constructor for frmMain  
@@ -49,13 +52,14 @@ namespace Stock_Checker
             stockPurchaseFees = purFees;
             stockSellFees = sellFees;
             stockGrossProfit = profit;
+            stock = -1;
 
             updateStock();
             calcOutput();
         }
         #endregion
 
-        #region On-Click Functions
+        #region Form Events
 
         private void btnUpdateBudget_Click(object sender, EventArgs e)// Validates the investment budget  
         {
@@ -164,5 +168,12 @@ namespace Stock_Checker
         }
         #endregion
 
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (stock == -1)
+            {
+                Application.Exit();
+            }
+        }
     }// End of frmMain
 }
