@@ -77,15 +77,17 @@
             this.txtInvestmentBudget.Location = new System.Drawing.Point(47, 75);
             this.txtInvestmentBudget.Name = "txtInvestmentBudget";
             this.txtInvestmentBudget.Size = new System.Drawing.Size(261, 37);
-            this.txtInvestmentBudget.TabIndex = 0;
+            this.txtInvestmentBudget.TabIndex = 1;
             // 
             // btnUpdateBudget
             // 
             this.btnUpdateBudget.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateBudget.Location = new System.Drawing.Point(326, 74);
+            this.btnUpdateBudget.MaximumSize = new System.Drawing.Size(133, 38);
+            this.btnUpdateBudget.MinimumSize = new System.Drawing.Size(133, 38);
             this.btnUpdateBudget.Name = "btnUpdateBudget";
             this.btnUpdateBudget.Size = new System.Drawing.Size(133, 38);
-            this.btnUpdateBudget.TabIndex = 1;
+            this.btnUpdateBudget.TabIndex = 0;
             this.btnUpdateBudget.Text = "Update";
             this.btnUpdateBudget.UseVisualStyleBackColor = true;
             // 
@@ -517,7 +519,9 @@
             this.Controls.Add(this.btnStock1);
             this.Controls.Add(this.btnUpdateBudget);
             this.Controls.Add(this.txtInvestmentBudget);
+            this.MaximizeBox = false;
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock Checker";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.grpOutput.ResumeLayout(false);
