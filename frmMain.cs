@@ -33,7 +33,7 @@ namespace Stock_Checker
 
             investmentBudget = 0.0M;
 
-            stockName = new string[5] { "", "", "", "", "" };
+            stockName = new string[5] { "name", "name", "name", "name", "name" };
             stockPurchaseCost = new decimal[5] { 0, 0, 0, 0, 0 };
             stockPurchaseFees = new decimal[5] { 0, 0, 0, 0, 0 };
             stockSellFees = new decimal[5] { 0, 0, 0, 0, 0 };
@@ -146,7 +146,37 @@ namespace Stock_Checker
 
         private void updateStock()// Displays the info for each stock
         {
-            // Display Stock Info
+            txtInvestmentBudget.Text = investmentBudget.ToString();
+            btnStock1.Enabled = true;
+            btnStock2.Enabled = true;
+            btnStock3.Enabled = true;
+            btnStock4.Enabled = true;
+            btnStock5.Enabled = true;
+
+            // stock 1
+            lblStock1Name.Text = stockName[0];
+            lblStock1GrossProfit.Text = stockGrossProfit[0].ToString("C");
+            lblStock1TransFee.Text = stockSellFees[0].ToString("C");
+
+            // stock 2
+            lblStock2Name.Text = stockName[1];
+            lblStock2GrossProfit.Text = stockGrossProfit[1].ToString("C");
+            lblStock2TransFee.Text = stockSellFees[1].ToString("C");
+
+            // stock 3
+            lblStock3Name.Text = stockName[2];
+            lblStock3GrossProfit.Text = stockGrossProfit[2].ToString("C");
+            lblStock3TransFee.Text = stockSellFees[2].ToString("C");
+
+            // stock 4
+            lblStock4Name.Text = stockName[3];
+            lblStock4GrossProfit.Text = stockGrossProfit[3].ToString("C");
+            lblStock4TransFee.Text = stockSellFees[3].ToString("C");
+
+            // stock 5
+            lblStock5Name.Text = stockName[4];
+            lblStock5GrossProfit.Text = stockGrossProfit[4].ToString("C");
+            lblStock5TransFee.Text = stockSellFees[4].ToString("C");
         }
 
         private void calcOutput()// Calculates and displays the output if all data has been provided
