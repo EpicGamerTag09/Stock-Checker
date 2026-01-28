@@ -33,7 +33,7 @@ namespace Stock_Checker
 
             investmentBudget = 0.0M;
 
-            stockName = new string[5] { "name", "name", "name", "name", "name" };
+            stockName = new string[5] { "", "", "", "", "" };
             stockPurchaseCost = new decimal[5] { 0, 0, 0, 0, 0 };
             stockPurchaseFees = new decimal[5] { 0, 0, 0, 0, 0 };
             stockSellFees = new decimal[5] { 0, 0, 0, 0, 0 };
