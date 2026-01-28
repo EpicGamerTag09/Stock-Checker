@@ -56,16 +56,27 @@ namespace Stock_Checker
             }// End if
 
             decimal purchaseCost = CheckPurchase(); // checks if the purchase price is a positive number
-            if (purchaseCost == -1) 
+            if (purchaseCost == -1)
             {
                 errorMessage += "\n    - Purchase price must be a positive number";
                 goodData = false;
             }
+            else if (purchaseCost == -2)
+            {
+                errorMessage += "\n    - Purchase price must be a smaller number";
+                goodData = false;
+            }
 
-            decimal sellPrice = CheckSellPrice(); // checks if the selling price is a positive number
+
+                decimal sellPrice = CheckSellPrice(); // checks if the selling price is a positive number
             if (sellPrice == -1)
             {
                 errorMessage += "\n    - Selling price must be a positive number";
+                goodData = false;
+            }
+            else if (sellPrice == -2)
+            {
+                errorMessage += "\n    - Sell price must be a smaller number";
                 goodData = false;
             }
 
@@ -73,6 +84,11 @@ namespace Stock_Checker
             if (sharesPurchased == -1)
             {
                 errorMessage += "\n    - Shares purchased must be a positive number";
+                goodData = false;
+            }
+            else if (sharesPurchased == -2)
+            {
+                errorMessage += "\n    - Shares purchased must be a smaller number";
                 goodData = false;
             }
 
@@ -139,9 +155,13 @@ namespace Stock_Checker
                     return _decPurchaseCost;
                 }
             }
-            catch (Exception)
+            catch (InvalidCastException)
             {
                 return -1;
+            }
+            catch (OverflowException)
+            {
+                return -2;
             }
         }
 
@@ -159,9 +179,13 @@ namespace Stock_Checker
                     return _decSellingPrice;
                 }
             }
-            catch (Exception)
+            catch (InvalidCastException)
             {
                 return -1;
+            }
+            catch (OverflowException)
+            {
+                return -2;
             }
         }
 
@@ -179,9 +203,13 @@ namespace Stock_Checker
                     return _intSharesPurchased;
                 }
             }
-            catch (Exception)
+            catch (InvalidCastException)
             {
                 return -1;
+            }
+            catch (OverflowException)
+            {
+                return -2;
             }
         }
 
