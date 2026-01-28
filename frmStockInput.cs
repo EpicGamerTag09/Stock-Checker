@@ -121,6 +121,12 @@ namespace Stock_Checker
         {
             this.Close();
         }
+
+        private void frmStockInput_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frmMain newForm = new frmMain(budget, savedNames, savedCosts, savedPurchaseFees, savedSellFees, savedProfits);
+            newForm.Show();
+        }
         #endregion
 
         #region Input Tests
@@ -199,10 +205,5 @@ namespace Stock_Checker
         }
         #endregion
 
-        private void frmStockInput_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            frmMain newForm = new frmMain(budget, savedNames, savedCosts, savedPurchaseFees, savedSellFees, savedProfits);
-            newForm.Show();
-        }
     }// End of frmStockInput
 }
