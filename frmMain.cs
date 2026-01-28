@@ -87,7 +87,7 @@ namespace Stock_Checker
                     btnStock5.Enabled = false;
                 }// End if
             }
-            catch (Exception)
+            catch (InvalidCastException)
             {
                 MessageBox.Show("Investment Budget can only have numbers", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 investmentBudget = 0;
@@ -97,6 +97,16 @@ namespace Stock_Checker
                 btnStock4.Enabled = false;
                 btnStock5.Enabled = false;
             }// End try
+            catch (OverflowException)
+            {
+                MessageBox.Show("Investment Budget is too big", "Your lying bro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                investmentBudget = 0;
+                btnStock1.Enabled = false;
+                btnStock2.Enabled = false;
+                btnStock3.Enabled = false;
+                btnStock4.Enabled = false;
+                btnStock5.Enabled = false;
+            }
         }
 
         private void OpenStockInput(object sender, EventArgs e)// Opens frmStockInput  
