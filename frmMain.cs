@@ -78,7 +78,7 @@ namespace Stock_Checker
                 }
                 else
                 {
-                    MessageBox.Show("Investment Budget cannot be less than the total purchase cost.", "Input Error");
+                    MessageBox.Show("Investment Budget cannot be less than the total purchase cost.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     investmentBudget = 0;
                     btnStock1.Enabled = false;
                     btnStock2.Enabled = false;
@@ -89,7 +89,7 @@ namespace Stock_Checker
             }
             catch (Exception)
             {
-                MessageBox.Show("Investment Budget can only have numbers", "Input Error");
+                MessageBox.Show("Investment Budget can only have numbers", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 investmentBudget = 0;
                 btnStock1.Enabled = false;
                 btnStock2.Enabled = false;

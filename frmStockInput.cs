@@ -111,7 +111,10 @@ namespace Stock_Checker
                 savedPurchaseFees[stockNumber] = purchaseFee;
                 savedSellFees[stockNumber] = sellFee;
                 savedProfits[stockNumber] = grossProfit;
-
+            }
+            else
+            {
+                MessageBox.Show(errorMessage, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
