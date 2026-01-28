@@ -274,6 +274,9 @@
             this.ClientSize = new System.Drawing.Size(819, 481);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpStockInfo);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(835, 520);
+            this.MinimumSize = new System.Drawing.Size(835, 520);
             this.Name = "frmStockInput";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock #";
