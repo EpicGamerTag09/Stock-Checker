@@ -65,7 +65,7 @@ namespace Stock_Checker
         {
             try
             {
-                investmentBudget = Convert.ToInt32(txtInvestmentBudget.Text);
+                investmentBudget = Convert.ToDecimal(txtInvestmentBudget.Text);
 
                 if (CheckTotalPrice())
                 {
