@@ -49,6 +49,11 @@ namespace Stock_Checker
             string errorMessage = "The following errors must be corrected before the stock is entered:";
             bool goodData = true;
 
+            if (txtName.Text.Length == 0)
+            {
+                goodData = false;
+                errorMessage += "\n    - A name for the stock must be entered";
+            }// End if
 
             decimal purchaseCost = CheckPurchase(); // checks if the purchase price is a positive number
             if (purchaseCost == -1) 
@@ -83,12 +88,6 @@ namespace Stock_Checker
                     goodData = false;
                 }
             }
-
-            if (txtName.Text.Length == 0)
-            {
-                goodData = false;
-                errorMessage += "\n    - A name for the stock must be entered";
-            }// End if
 
             // test results
             if (goodData)
