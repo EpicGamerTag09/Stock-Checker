@@ -38,16 +38,16 @@
             this.btnCalculate = new System.Windows.Forms.Button();
             this.lblSellFeeValue = new System.Windows.Forms.Label();
             this.grpStockInfo = new System.Windows.Forms.GroupBox();
+            this.lblSellingPrice = new System.Windows.Forms.Label();
             this.lblShares = new System.Windows.Forms.Label();
             this.lblPurchasePrice = new System.Windows.Forms.Label();
             this.lblSockName = new System.Windows.Forms.Label();
-            this.lblSellingPrice = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnUpdateStock = new System.Windows.Forms.Button();
-            this.lblPurCostText = new System.Windows.Forms.Label();
-            this.lblBuyFeeText = new System.Windows.Forms.Label();
-            this.lblSellFeeText = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblSellFeeText = new System.Windows.Forms.Label();
+            this.lblBuyFeeText = new System.Windows.Forms.Label();
+            this.lblPurCostText = new System.Windows.Forms.Label();
+            this.btnUpdateStock = new System.Windows.Forms.Button();
             this.grpStockInfo.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -122,6 +122,7 @@
             this.btnCalculate.TabIndex = 7;
             this.btnCalculate.Text = "Calculate";
             this.btnCalculate.UseVisualStyleBackColor = false;
+            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
             // lblSellFeeValue
             // 
@@ -151,6 +152,16 @@
             this.grpStockInfo.TabIndex = 10;
             this.grpStockInfo.TabStop = false;
             this.grpStockInfo.Text = "Stock Info";
+            // 
+            // lblSellingPrice
+            // 
+            this.lblSellingPrice.AutoSize = true;
+            this.lblSellingPrice.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSellingPrice.Location = new System.Drawing.Point(6, 316);
+            this.lblSellingPrice.Name = "lblSellingPrice";
+            this.lblSellingPrice.Size = new System.Drawing.Size(177, 31);
+            this.lblSellingPrice.TabIndex = 4;
+            this.lblSellingPrice.Text = "Selling Price:";
             // 
             // lblShares
             // 
@@ -182,16 +193,6 @@
             this.lblSockName.TabIndex = 0;
             this.lblSockName.Text = "Stock Name:";
             // 
-            // lblSellingPrice
-            // 
-            this.lblSellingPrice.AutoSize = true;
-            this.lblSellingPrice.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSellingPrice.Location = new System.Drawing.Point(6, 316);
-            this.lblSellingPrice.Name = "lblSellingPrice";
-            this.lblSellingPrice.Size = new System.Drawing.Size(177, 31);
-            this.lblSellingPrice.TabIndex = 4;
-            this.lblSellingPrice.Text = "Selling Price:";
-            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(248)))), ((int)(((byte)(255)))));
@@ -212,37 +213,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Stock Info";
             // 
-            // btnUpdateStock
+            // label1
             // 
-            this.btnUpdateStock.BackColor = System.Drawing.Color.Turquoise;
-            this.btnUpdateStock.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUpdateStock.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateStock.Location = new System.Drawing.Point(199, 404);
-            this.btnUpdateStock.Name = "btnUpdateStock";
-            this.btnUpdateStock.Size = new System.Drawing.Size(172, 36);
-            this.btnUpdateStock.TabIndex = 7;
-            this.btnUpdateStock.Text = "Update Stock";
-            this.btnUpdateStock.UseVisualStyleBackColor = false;
-            // 
-            // lblPurCostText
-            // 
-            this.lblPurCostText.AutoSize = true;
-            this.lblPurCostText.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPurCostText.Location = new System.Drawing.Point(6, 43);
-            this.lblPurCostText.Name = "lblPurCostText";
-            this.lblPurCostText.Size = new System.Drawing.Size(196, 31);
-            this.lblPurCostText.TabIndex = 8;
-            this.lblPurCostText.Text = "Purchase Cost:";
-            // 
-            // lblBuyFeeText
-            // 
-            this.lblBuyFeeText.AutoSize = true;
-            this.lblBuyFeeText.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBuyFeeText.Location = new System.Drawing.Point(6, 134);
-            this.lblBuyFeeText.Name = "lblBuyFeeText";
-            this.lblBuyFeeText.Size = new System.Drawing.Size(185, 31);
-            this.lblBuyFeeText.TabIndex = 9;
-            this.lblBuyFeeText.Text = "Purchase Fee:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 316);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(166, 31);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Gross Profit:";
             // 
             // lblSellFeeText
             // 
@@ -254,15 +233,38 @@
             this.lblSellFeeText.TabIndex = 10;
             this.lblSellFeeText.Text = "Selling Fee:";
             // 
-            // label1
+            // lblBuyFeeText
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 316);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 31);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Gross Profit:";
+            this.lblBuyFeeText.AutoSize = true;
+            this.lblBuyFeeText.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuyFeeText.Location = new System.Drawing.Point(6, 134);
+            this.lblBuyFeeText.Name = "lblBuyFeeText";
+            this.lblBuyFeeText.Size = new System.Drawing.Size(185, 31);
+            this.lblBuyFeeText.TabIndex = 9;
+            this.lblBuyFeeText.Text = "Purchase Fee:";
+            // 
+            // lblPurCostText
+            // 
+            this.lblPurCostText.AutoSize = true;
+            this.lblPurCostText.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPurCostText.Location = new System.Drawing.Point(6, 43);
+            this.lblPurCostText.Name = "lblPurCostText";
+            this.lblPurCostText.Size = new System.Drawing.Size(196, 31);
+            this.lblPurCostText.TabIndex = 8;
+            this.lblPurCostText.Text = "Purchase Cost:";
+            // 
+            // btnUpdateStock
+            // 
+            this.btnUpdateStock.BackColor = System.Drawing.Color.Turquoise;
+            this.btnUpdateStock.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUpdateStock.Font = new System.Drawing.Font("Rockwell", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateStock.Location = new System.Drawing.Point(199, 404);
+            this.btnUpdateStock.Name = "btnUpdateStock";
+            this.btnUpdateStock.Size = new System.Drawing.Size(172, 36);
+            this.btnUpdateStock.TabIndex = 7;
+            this.btnUpdateStock.Text = "Update Stock";
+            this.btnUpdateStock.UseVisualStyleBackColor = false;
+            this.btnUpdateStock.Click += new System.EventHandler(this.btnUpdateStock_Click);
             // 
             // frmStockInput
             // 
@@ -275,12 +277,12 @@
             this.Name = "frmStockInput";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock #";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmStockInput_FormClosing);
             this.grpStockInfo.ResumeLayout(false);
             this.grpStockInfo.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

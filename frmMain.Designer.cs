@@ -90,6 +90,7 @@
             this.btnUpdateBudget.TabIndex = 0;
             this.btnUpdateBudget.Text = "Update";
             this.btnUpdateBudget.UseVisualStyleBackColor = true;
+            this.btnUpdateBudget.Click += new System.EventHandler(this.btnUpdateBudget_Click);
             // 
             // btnStock1
             // 
@@ -101,6 +102,7 @@
             this.btnStock1.TabIndex = 2;
             this.btnStock1.Text = "Update";
             this.btnStock1.UseVisualStyleBackColor = true;
+            this.btnStock1.Click += new System.EventHandler(this.OpenStockInput);
             // 
             // lblStock1Name
             // 
@@ -222,6 +224,7 @@
             this.btnStock2.TabIndex = 30;
             this.btnStock2.Text = "Update";
             this.btnStock2.UseVisualStyleBackColor = true;
+            this.btnStock2.Click += new System.EventHandler(this.OpenStockInput);
             // 
             // lblStock3
             // 
@@ -273,6 +276,7 @@
             this.btnStock3.TabIndex = 35;
             this.btnStock3.Text = "Update";
             this.btnStock3.UseVisualStyleBackColor = true;
+            this.btnStock3.Click += new System.EventHandler(this.OpenStockInput);
             // 
             // lblStock4
             // 
@@ -324,6 +328,7 @@
             this.btnStock4.TabIndex = 40;
             this.btnStock4.Text = "Update";
             this.btnStock4.UseVisualStyleBackColor = true;
+            this.btnStock4.Click += new System.EventHandler(this.OpenStockInput);
             // 
             // lblStock5
             // 
@@ -375,6 +380,7 @@
             this.btnStock5.TabIndex = 45;
             this.btnStock5.Text = "Update";
             this.btnStock5.UseVisualStyleBackColor = true;
+            this.btnStock5.Click += new System.EventHandler(this.OpenStockInput);
             // 
             // lblTotalGross
             // 
@@ -523,9 +529,9 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock Checker";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.grpOutput.ResumeLayout(false);
             this.grpOutput.PerformLayout();
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
