@@ -98,7 +98,7 @@ namespace Stock_Checker
                 decimal sellFee = 0M;
                 if (grossProfit > 0)
                 {
-                    sellFee = sellTransaction * FEE_RATE;
+                    sellFee = grossProfit * FEE_RATE;
                 }
 
                 lblPurchaseCostValue.Text = purchaseTransaction.ToString("C");
