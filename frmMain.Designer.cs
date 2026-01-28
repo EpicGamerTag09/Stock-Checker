@@ -32,7 +32,7 @@
             this.btnUpdateBudget = new System.Windows.Forms.Button();
             this.btnStock1 = new System.Windows.Forms.Button();
             this.lblStock1Name = new System.Windows.Forms.Label();
-            this.lblStockck1GrossProfit = new System.Windows.Forms.Label();
+            this.lblStock1GrossProfit = new System.Windows.Forms.Label();
             this.lblStock1TransFee = new System.Windows.Forms.Label();
             this.lblTotalGrossValue = new System.Windows.Forms.Label();
             this.lblInvestmentBudget = new System.Windows.Forms.Label();
@@ -61,11 +61,11 @@
             this.lblTotalGross = new System.Windows.Forms.Label();
             this.lblTotalTransFee = new System.Windows.Forms.Label();
             this.lblTotalFeesValue = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblNetProfit = new System.Windows.Forms.Label();
             this.lblNetProfitValue = new System.Windows.Forms.Label();
             this.lblTotalTax = new System.Windows.Forms.Label();
             this.lblTaxValue = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblNewBudget = new System.Windows.Forms.Label();
             this.lblNewBudgetValue = new System.Windows.Forms.Label();
             this.grpOutput = new System.Windows.Forms.GroupBox();
             this.grpOutput.SuspendLayout();
@@ -112,15 +112,15 @@
             this.lblStock1Name.TabIndex = 3;
             this.lblStock1Name.Text = "Entry Needed!";
             // 
-            // lblStockck1GrossProfit
+            // lblStock1GrossProfit
             // 
-            this.lblStockck1GrossProfit.AutoSize = true;
-            this.lblStockck1GrossProfit.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockck1GrossProfit.Location = new System.Drawing.Point(523, 131);
-            this.lblStockck1GrossProfit.Name = "lblStockck1GrossProfit";
-            this.lblStockck1GrossProfit.Size = new System.Drawing.Size(94, 29);
-            this.lblStockck1GrossProfit.TabIndex = 4;
-            this.lblStockck1GrossProfit.Text = "Profit: ";
+            this.lblStock1GrossProfit.AutoSize = true;
+            this.lblStock1GrossProfit.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStock1GrossProfit.Location = new System.Drawing.Point(523, 131);
+            this.lblStock1GrossProfit.Name = "lblStock1GrossProfit";
+            this.lblStock1GrossProfit.Size = new System.Drawing.Size(94, 29);
+            this.lblStock1GrossProfit.TabIndex = 4;
+            this.lblStock1GrossProfit.Text = "Profit: ";
             // 
             // lblStock1TransFee
             // 
@@ -405,15 +405,15 @@
             this.lblTotalFeesValue.Size = new System.Drawing.Size(0, 29);
             this.lblTotalFeesValue.TabIndex = 51;
             // 
-            // label2
+            // lblNetProfit
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Rockwell", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 320);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 32);
-            this.label2.TabIndex = 56;
-            this.label2.Text = "Net Profit:";
+            this.lblNetProfit.AutoSize = true;
+            this.lblNetProfit.Font = new System.Drawing.Font("Rockwell", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNetProfit.Location = new System.Drawing.Point(22, 320);
+            this.lblNetProfit.Name = "lblNetProfit";
+            this.lblNetProfit.Size = new System.Drawing.Size(147, 32);
+            this.lblNetProfit.TabIndex = 56;
+            this.lblNetProfit.Text = "Net Profit:";
             // 
             // lblNetProfitValue
             // 
@@ -443,15 +443,15 @@
             this.lblTaxValue.Size = new System.Drawing.Size(0, 29);
             this.lblTaxValue.TabIndex = 53;
             // 
-            // label6
+            // lblNewBudget
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Rockwell", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(22, 409);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(184, 32);
-            this.label6.TabIndex = 58;
-            this.label6.Text = "New Budget:";
+            this.lblNewBudget.AutoSize = true;
+            this.lblNewBudget.Font = new System.Drawing.Font("Rockwell", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewBudget.Location = new System.Drawing.Point(22, 409);
+            this.lblNewBudget.Name = "lblNewBudget";
+            this.lblNewBudget.Size = new System.Drawing.Size(184, 32);
+            this.lblNewBudget.TabIndex = 58;
+            this.lblNewBudget.Text = "New Budget:";
             // 
             // lblNewBudgetValue
             // 
@@ -466,11 +466,11 @@
             // 
             this.grpOutput.BackColor = System.Drawing.Color.Ivory;
             this.grpOutput.Controls.Add(this.lblTotalGross);
-            this.grpOutput.Controls.Add(this.label6);
+            this.grpOutput.Controls.Add(this.lblNewBudget);
             this.grpOutput.Controls.Add(this.lblTotalGrossValue);
             this.grpOutput.Controls.Add(this.lblNewBudgetValue);
             this.grpOutput.Controls.Add(this.lblTotalFeesValue);
-            this.grpOutput.Controls.Add(this.label2);
+            this.grpOutput.Controls.Add(this.lblNetProfit);
             this.grpOutput.Controls.Add(this.lblTotalTransFee);
             this.grpOutput.Controls.Add(this.lblNetProfitValue);
             this.grpOutput.Controls.Add(this.lblTaxValue);
@@ -514,7 +514,7 @@
             this.Controls.Add(this.lblDollar);
             this.Controls.Add(this.lblInvestmentBudget);
             this.Controls.Add(this.lblStock1TransFee);
-            this.Controls.Add(this.lblStockck1GrossProfit);
+            this.Controls.Add(this.lblStock1GrossProfit);
             this.Controls.Add(this.lblStock1Name);
             this.Controls.Add(this.btnStock1);
             this.Controls.Add(this.btnUpdateBudget);
@@ -537,7 +537,7 @@
         private System.Windows.Forms.Button btnUpdateBudget;
         private System.Windows.Forms.Button btnStock1;
         private System.Windows.Forms.Label lblStock1Name;
-        private System.Windows.Forms.Label lblStockck1GrossProfit;
+        private System.Windows.Forms.Label lblStock1GrossProfit;
         private System.Windows.Forms.Label lblStock1TransFee;
         private System.Windows.Forms.Label lblTotalGrossValue;
         private System.Windows.Forms.Label lblInvestmentBudget;
@@ -566,11 +566,11 @@
         private System.Windows.Forms.Label lblTotalGross;
         private System.Windows.Forms.Label lblTotalTransFee;
         private System.Windows.Forms.Label lblTotalFeesValue;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblNetProfit;
         private System.Windows.Forms.Label lblNetProfitValue;
         private System.Windows.Forms.Label lblTotalTax;
         private System.Windows.Forms.Label lblTaxValue;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblNewBudget;
         private System.Windows.Forms.Label lblNewBudgetValue;
         private System.Windows.Forms.GroupBox grpOutput;
     }
