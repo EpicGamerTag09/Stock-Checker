@@ -218,7 +218,11 @@ namespace Stock_Checker
             {
                 decimal grossTotal = stockGrossProfit.Sum();
                 decimal feeTotal = stockPurchaseFees.Sum() + stockSellFees.Sum();
-                decimal tax = grossTotal * TAX_RATE;
+                decimal tax = 0.0M;
+                if (grossTotal > 0M)
+                {
+                tax = grossTotal * TAX_RATE;
+                }
                 decimal netProfit = grossTotal - feeTotal - tax;
                 decimal newBudget = investmentBudget + netProfit;
 
