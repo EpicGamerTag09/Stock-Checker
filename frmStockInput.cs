@@ -161,7 +161,7 @@ namespace Stock_Checker
                     return _decPurchaseCost;
                 }
             }
-            catch (InvalidCastException)
+            catch (FormatException)
             {
                 return -1;
             }

@@ -87,7 +87,7 @@ namespace Stock_Checker
                     btnStock5.Enabled = false;
                 }// End if
             }
-            catch (InvalidCastException)
+            catch (FormatException)
             {
                 MessageBox.Show("Investment Budget can only have numbers", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 investmentBudget = 0;
